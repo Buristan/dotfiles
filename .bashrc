@@ -97,13 +97,20 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
+#Git aliases
+alias gfeces='git commit -m "Code style fixes"'
+alias gst='git status'
+alias gadd='git add'
+alias giff='git diff'
+
 #Other aliases
 alias hist='history'
 alias f='find'
 alias cl='clear'
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
-alias histg="history | grep"
+alias histg="history | grep -v grep | grep"
 alias myip="curl http://ipecho.net/plain; echo"
+alias fresh=". ~/.bashrc"
 
 #do like vim
 #alias k=

@@ -6,6 +6,7 @@ call plug#begin()
 	Plug 'tbastos/vim-lua'
 	Plug 'joshdick/onedark.vim'
 	Plug 'gosukiwi/vim-atom-dark'
+	Plug 'okoshovetc/yvcs'
 call plug#end()
 
 "numbers, tapstops, history and search
@@ -15,9 +16,10 @@ set incsearch
 set tabstop=4
 set shiftwidth=4
 set autoindent
-set listchars=tab:>.,trail:~
+set listchars=tab:\|.,trail:~
 set list
 set showmatch
+set showcmd
 set history=200
 set cursorline
 
@@ -41,7 +43,11 @@ set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set background=dark
-colorscheme onedark
+colorscheme yvpale
+
+"folding
+set foldenable
+set foldmethod=indent
 
 "status line
 set laststatus=2
@@ -54,3 +60,6 @@ nmap <C-k> kzz
 
 "commands
 command! W w
+command! Game exec "! git blame %"
+command! Giff exec "! git diff %"
+command! Fresh exec "source ~/.vimrc"
