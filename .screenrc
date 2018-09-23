@@ -1,3 +1,6 @@
+#Normal colors in other term-s
+term screen-256color
+
 #No startup_message
 startup_message off
 

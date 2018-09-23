@@ -9,6 +9,9 @@ call plug#begin()
 	Plug 'okoshovetc/yvcs'
 call plug#end()
 
+"Not clear buffer when exit vim
+autocmd VimLeave * call system("xsel -ib", getreg('+'))
+
 "numbers, tapstops, history and search
 set nu
 set hlsearch
@@ -57,6 +60,10 @@ set nu
 "keymap
 nmap <C-j> jzz
 nmap <C-k> kzz
+
+"Hanging <Tab>-s
+inoremap <Esc> ~<bs><Esc>
+inoremap <cr> ~<bs><cr>
 
 "commands
 command! W w
