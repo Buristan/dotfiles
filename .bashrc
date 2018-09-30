@@ -56,8 +56,26 @@ if [ -n "$force_color_prompt" ]; then
 	fi
 fi
 
+# Color definitions
+BLACK='\033[0;30m'
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BROWN='\033[0;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+LIGHTGREY='\033[0;37m'
+LIGHTRED='\033[1;31m'
+LIGHTGREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+LIGHTBLUE='\033[1;34m'
+LIGHTPURPLE='\033[1;35m'
+LIGHTCYAN='\033[1;36m'
+DARKGREY='\033[1;37m'
+NORMAL='\033[00m'
+
 if [ "$color_prompt" = yes ]; then
-	PS1='\[\033[01;34m\]\t\[\033[00m\] \[\033[1;31m\]jobs:\j\[\033[00m\] ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \n>>> '
+	PS1="${YELLOW}\t ${LIGHTRED}\jobs:\j${NORMAL} ${LIGHTGREN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -172,9 +190,9 @@ export LC_NAME=en_US.UTF-8
 
 #To screen fonts
 if [ -z $STY ]; then
-	PS1='\[\033[01;34m\]\t\[\033[00m\] \[\033[1;31m\]jobs:\j\[\033[00m\] ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ \n>>> '
+	PS1="${LIGHTBLUE}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
 else
-	PS1='\[\033[01;36m\]\t\[\033[00m\] \[\033[1;31m\]jobs:\j\[\033[00m\] ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[1;32m\]\$ \n>>>\[\033[00m\] '
+	PS1="${LIGHTCYAN}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${LIGHTGREEN}\$ \n>>>${NORMAL} "
 fi
 
 set -o vi
