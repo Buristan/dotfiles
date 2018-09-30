@@ -57,25 +57,25 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 # Color definitions
-BLACK='\033[0;30m'
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-BROWN='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHTGREY='\033[0;37m'
-LIGHTRED='\033[1;31m'
-LIGHTGREEN='\033[1;32m'
-YELLOW='\033[1;33m'
-LIGHTBLUE='\033[1;34m'
-LIGHTPURPLE='\033[1;35m'
-LIGHTCYAN='\033[1;36m'
-DARKGREY='\033[1;37m'
-NORMAL='\033[00m'
+BLACK='\[\033[0;30m\]'
+RED='\[\033[0;31m\]'
+GREEN='\[\033[0;32m\]'
+BROWN='\[\033[0;33m\]'
+BLUE='\[\033[0;34m\]'
+PURPLE='\[\033[0;35m\]'
+CYAN='\[\033[0;36m\]'
+LIGHTGREY='\[\033[0;37m\]'
+LIGHTRED='\[\033[1;31m\]'
+LIGHTGREEN='\[\033[1;32m\]'
+YELLOW='\[\033[1;33m\]'
+LIGHTBLUE='\[\033[1;34m\]'
+LIGHTPURPLE='\[\033[1;35m\]'
+LIGHTCYAN='\[\033[1;36m\]'
+DARKGREY='\[\033[1;37m\]'
+NORMAL='\[\033[00m\]'
 
 if [ "$color_prompt" = yes ]; then
-	PS1="${YELLOW}\t ${LIGHTRED}\jobs:\j${NORMAL} ${LIGHTGREN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
+	PS1="${YELLOW}\t ${LIGHTRED}jobs:\j${NORMAL} ${LIGHTGREN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
