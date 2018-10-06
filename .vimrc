@@ -57,9 +57,16 @@ set laststatus=2
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set nu
 
-"keymap
+"keymap normal mode
 nmap <C-j> jzz
 nmap <C-k> kzz
+nmap <silent> [[ k$?{<CR>0N:noh<cr>
+nmap <silent> ][ j0/{<CR>0n:noh<cr>
+nmap <silent> ]] $/}<CR>$N:noh<cr>
+nmap <silent> [] 0?}<CR>$n:noh<cr>
+
+"keymap visual mode "TODO NORMAL FOR ALL lang
+xmap <C-_> 0<C-v>I#<Esc>
 
 "Hanging <Tab>-s
 inoremap <Esc> ~<bs><Esc>
