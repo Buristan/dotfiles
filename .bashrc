@@ -213,3 +213,6 @@ fi
 set -o vi
 EDITOR='vim'
 export EDITOR
+
+# Wakatime
+source ${HOME}/bash-wakatime/bash-wakatime.sh
