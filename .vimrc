@@ -1,5 +1,7 @@
 call plug#begin()
 	Plug 'kien/ctrlp.vim'
+	"Wakatime
+	Plug 'wakatime/vim-wakatime'
 	"colorschemes
 	Plug 'Haron-Prime/evening_vim'
 	Plug 'fsrc/lyla-vim'
