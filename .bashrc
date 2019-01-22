@@ -130,6 +130,10 @@ alias histg="history | grep -v grep | grep"
 alias myip="curl http://ipecho.net/plain; echo"
 alias fresh=". ~/.bashrc"
 
+#xrandr
+alias set_monitor_default='xrandr --output DP2 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920'
+# autodetecting of the second monitor
+# alias set_monitor_demo='xrandr --output DP2 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920'
 #do like vim
 #alias k=
 
