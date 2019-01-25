@@ -131,7 +131,8 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias fresh=". ~/.bashrc"
 
 #xrandr
-alias set_monitor_default='xrandr --output DP1 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920'
+alias set_monitor_vertical="xrandr -q | perl -lnE 'our %mon; my (\$k,\$v) = \$_ =~ /^(\S+)\s+connected\s+(?:primary\s+)?(\d+x\d+)/; \$v?\$mon{\$k}=\$v:delete\$mon{\$k};}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; say qq{xrandr --output \$output --auto --above eDP1 --rotate left --output eDP1 --auto}' | bash"
+alias set_monitor_demo="xrandr -q | perl -lnE 'our %mon; my (\$k,\$v) = \$_ =~ /^(\S+)\s+connected\s+(?:primary\s+)?(\d+x\d+)/; \$v?\$mon{\$k}=\$v:delete\$mon{\$k};}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; say qq{xrandr --output \$output --auto --rotate normal --same-as eDP1 --output eDP1 --auto}' | bash"
 # autodetecting of the second monitor
 # alias set_monitor_demo='xrandr --output DP2 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920'
 #do like vim
