@@ -1,5 +1,6 @@
 call plug#begin()
 	Plug 'kien/ctrlp.vim'
+	Plug 'airblade/vim-gitgutter'
 	"Wakatime
 	Plug 'wakatime/vim-wakatime'
 	"colorschemes
@@ -79,3 +80,6 @@ command! W w
 command! Game exec "! git blame %"
 command! Giff exec "! git diff %"
 command! Fresh exec "source ~/.vimrc"
+
+"Not hightlighting last search after reload
+noh
