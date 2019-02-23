@@ -3,6 +3,8 @@ call plug#begin()
 	Plug 'airblade/vim-gitgutter'
 	"Wakatime
 	Plug 'wakatime/vim-wakatime'
+	"Browser
+	Plug 'tyru/open-browser.vim'
 	"colorschemes
 	Plug 'Haron-Prime/evening_vim'
 	Plug 'fsrc/lyla-vim'
@@ -80,6 +82,16 @@ command! W w
 command! Game exec "! git blame %"
 command! Giff exec "! git diff %"
 command! Fresh exec "source ~/.vimrc"
+
+"F5 to see .tex file in pdf
+autocmd FileType tex noremap <buffer> <F5> :w<CR> :!pdflatex -shell-escape "%" && evince %:p:r.pdf<CR>
+
+" If it looks like URI, open an URI under cursor.
+" Otherwise, search a word under cursor.
+nmap gs <Plug>(openbrowser-smart-search)
+" If it looks like URI, open selected URI.
+" Otherwise, search selected word.
+vmap gs <Plug>(openbrowser-smart-search)
 
 "Not hightlighting last search after reload
 noh
