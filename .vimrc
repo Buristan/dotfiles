@@ -93,5 +93,8 @@ nmap gs <Plug>(openbrowser-smart-search)
 " Otherwise, search selected word.
 vmap gs <Plug>(openbrowser-smart-search)
 
+"Cyrillic settings
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 "Not hightlighting last search after reload
 noh
