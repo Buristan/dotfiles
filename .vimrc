@@ -35,15 +35,15 @@ set cursorline
 set wildmenu
 
 "mappings for arrow keys
-"map <up> :echo 'KAPLUN NE NADO'<CR>
-"map <down> :echo 'KAPLUN NE NADO'<CR>
-"map <right> :echo 'KAPLUN NE NADO'<CR>
-"map <left> :echo 'KAPLUN NE NADO'<CR>
-"
-"imap <up> <ESC> :echo 'KAPLUN NE NADO'<CR>
-"imap <down> <ESC> :echo 'KAPLUN NE NADO'<CR>
-"imap <right> <ESC> :echo 'KAPLUN NE NADO'<CR>
-"imap <left> <ESC> :echo 'KAPLUN NE NADO'<CR>
+set term=$TERM
+nnoremap <silent> <ESC>OA <Nop>
+nnoremap <silent> <ESC>OB <Nop>
+nnoremap <silent> <ESC>OC <Nop>
+nnoremap <silent> <ESC>OD <Nop>
+inoremap <silent> <ESC>OA <Nop>
+inoremap <silent> <ESC>OB <Nop>
+inoremap <silent> <ESC>OC <Nop>
+inoremap <silent> <ESC>OD <Nop>
 
 "lighting
 syntax on
