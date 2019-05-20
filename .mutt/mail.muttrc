@@ -1,0 +1,30 @@
+# vim: syntax=muttrc
+
+# MAIL
+set my_name   = "Сергей Каплун"
+set folder    = "imaps://imap.mail.ru:993"
+set imap_user = "sergey_v_kaplun@mail.ru"
+set spoolfile = "imaps://imap.mail.ru/"
+set postponed = "+Drafts"
+source "`echo $HOME`/.muttcode/mailru"
+set imap_pass = $my_mail_pass
+
+# SMTPS
+set realname = $my_name
+set from     = $imap_user
+set use_from = yes
+set smtp_url = smtps://$imap_user:$imap_pass@smtp.mail.ru
+set ssl_force_tls = yes
+unset record # Gmails SMTP already copies emails to Sent folder
+
+mailboxes   = "+-----Mail Ru Account-----" \
+              +INBOX
+
+mailboxes   = +Sent
+mailboxes   = +[Wakatime]
+mailboxes   = +[Duolingo]
+mailboxes   = +[Codewars]
+
+unmailboxes = + # not show the first folder
+
+account-hook $folder "set imap_user=sergey_v_kaplun@mail.ru imap_pass=$my_mail_pass"

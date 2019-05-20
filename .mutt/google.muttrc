@@ -1,0 +1,56 @@
+# vim: syntax=muttrc
+
+# MAIL
+set my_name   = "Sergey Kaplun"
+set folder    = "imaps://imap.gmail.com/"
+set imap_user = "sergeykaplun1998@gmail.com"
+set spoolfile = "imaps://imap.gmail.com/"
+set postponed = "+Drafts"
+source "`echo $HOME`/.muttcode/google"
+set imap_pass = $my_google_pass
+
+# SMTPS
+set realname = $my_name
+set from     = $imap_user
+set use_from = yes
+set smtp_url = smtps://$imap_user:$imap_pass@smtp.gmail.com
+set ssl_force_tls = yes
+unset record # Gmails SMTP already copies emails to Sent folder
+
+mailboxes   = "+------Gmail Account------" \
+              +INBOX
+
+mailboxes   = +Sent
+
+mailboxes   = +[VIM]                       \
+              +[VIM]/[announce]            \
+              +[VIM]/[dev]                 \
+              +[VIM]/[dev]/[discuss]       \
+              +[VIM]/[dev]/[BUG]           \
+              +[VIM]/[dev]/[PATCH]         \
+              +[VIM]/[user]                \
+              +[VIM]/[fun]                 \
+              +[VIM]/[windows-shit]
+
+mailboxes   = +[Gentoo]                    \
+              +[Gentoo]/[announce]         \
+              +[Gentoo]/[dev]              \
+              +[Gentoo]/[dev]/[PATCH]      \
+              +[Gentoo]/[user]
+
+mailboxes   = +[Perl5]                     \
+              +[Perl5]/[changes]           \
+              +[Perl5]/[porters]           \
+              +[Perl5]/[beginners]         \
+              +[Perl5]/[fwp]               \
+              +[Perl5]/[xs]                \
+              +[Perl5]/[debugger]          \
+              +[Perl5]/[makemaker]
+
+mailboxes   = +[LuaJIT]                    \
+              +[LuaJIT]/[fun]              \
+              +[LuaJIT]/[trash]
+
+unmailboxes = + # not show the first folder
+
+account-hook $folder "set imap_user=sergeykaplun1998@gmail.com imap_pass=$my_google_pass"

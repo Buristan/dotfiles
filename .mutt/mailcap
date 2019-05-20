@@ -1,0 +1,2 @@
+text/html; lynx -editor=vim -assume_charset=%{charset} -display_charset=utf-8 -justify -dump %s; nametemplate=%s.html; copiousoutput;
+text/html; w3m -I %{charset} -T text/html; copiousoutput;
