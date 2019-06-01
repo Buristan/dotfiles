@@ -1,5 +1,7 @@
+SHELL := /bin/bash
+
 unpack_bash:
 	cp .bashrc .vimrc .screenrc .git-completion.bash .xprofile .inputrc .ctags .gdbinit .muttrc ..
-	cp -r .vim .mutt ..
+	cp -r .vim .mutt .gdb ..
 	git submodule update --init --recursive
-	cp -r .mutt/themes/* ../.mutt/themes
+	cp -r .mutt/themes/[^.]* ../.mutt/themes
