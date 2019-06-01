@@ -1,0 +1,40 @@
+# TODO fix dump of data segment
+define context
+	printf "_______________________________________"
+	printf "________________________________________\n"
+	reg
+	printf "[%04X:%08X]------------------------", $ss, $esp
+	printf "---------------------------------[stack]\n"
+	hexdump $sp+0x30
+	hexdump $sp+0x20
+	hexdump $sp+0x10
+	hexdump $sp
+	datawin
+	printf "[%04X:%08X]------------------------", $cs, $eip
+	printf "---------------------------------[ code]\n"
+	x /6i $pc
+	printf "---------------------------------------"
+	printf "---------------------------------------\n"
+end
+document context
+	Print regs, stack, ds:esi, and disassemble cs:eip
+end
+
+define context-on
+set $SHOW_CONTEXT = 1
+end
+document context-on
+	Enable display of context on every program stop
+end
+
+define context-off
+set $SHOW_CONTEXT = 1
+end
+document context-on
+	Disable display of context on every program stop
+end
+
+# Calls "context" at every breakpoint.
+define hook-stop
+	context
+end

@@ -36,7 +36,8 @@ mailboxes   = +[Gentoo]                    \
               +[Gentoo]/[announce]         \
               +[Gentoo]/[dev]              \
               +[Gentoo]/[dev]/[PATCH]      \
-              +[Gentoo]/[user]
+              +[Gentoo]/[user]             \
+              +[Gentoo]/[usefull_doodahs]
 
 mailboxes   = +[Perl5]                     \
               +[Perl5]/[changes]           \
