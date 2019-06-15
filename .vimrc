@@ -104,9 +104,9 @@ set modelines=10
 "Assembly
 nmap <silent> gA :set listchars=tab:\ \ ,trail:~<CR>
 "Common style
-nmap <silent> gC :set listchars=tab:\|.,trail:~,<CR>:set ts=4<CR>
+nmap <silent> gC :set listchars=tab:\\|.,trail:~<CR>:set ts=4<CR>
 "Linux style
-nmap <silent> gL :set listchars=tab:\|.,trail:~,<CR>:set ts=8<CR>
+nmap <silent> gL :set listchars=tab:\\|.,trail:~<CR>:set ts=8<CR>
 
 "Not hightlighting last search after reload
 noh

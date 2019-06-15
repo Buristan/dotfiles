@@ -73,9 +73,13 @@ LIGHTPURPLE='\[\033[1;35m\]'
 LIGHTCYAN='\[\033[1;36m\]'
 DARKGREY='\[\033[1;37m\]'
 NORMAL='\[\033[00m\]'
+BOLD='\[\033[1;00m\]'
+
+# Definition of last non zero status
+LASTSTAT='\[$(laststat=$?; if [[ $laststat -ne 0 ]]; then echo "[$laststat]"; fi)\]'
 
 if [ "$color_prompt" = yes ]; then
-	PS1="${YELLOW}\t ${LIGHTRED}jobs:\j${NORMAL} ${LIGHTGREN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
+	PS1="${YELLOW}\t ${LIGHTRED}jobs:\j${NORMAL} ${LIGHTGREN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$${BOLD}${LASTSTAT} \n>>> "
 else
 	PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -210,9 +214,9 @@ export LC_NAME=en_US.UTF-8
 
 #To screen fonts
 if [ -z $STY ]; then
-	PS1="${LIGHTBLUE}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$ \n>>> "
+	PS1="${LIGHTBLUE}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${NORMAL}\$${BOLD}${LASTSTAT} \n>>> "
 else
-	PS1="${LIGHTCYAN}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${LIGHTGREEN}\$ \n>>>${NORMAL} "
+	PS1="${LIGHTCYAN}\t ${LIGHTRED}jobs:\j ${LIGHTGREEN}\u@\h${NORMAL}:${LIGHTBLUE}\w${LIGHTGREEN}\$${BOLD}${LASTSTAT} \n${LIGHTGREEN}>>>${NORMAL} "
 fi
 
 set -o vi
