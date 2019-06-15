@@ -96,5 +96,13 @@ vmap gs <Plug>(openbrowser-smart-search)
 "Cyrillic settings
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
+"Commands for choose syntaxes style
+"Assembly
+nmap <silent> gA :set listchars=tab:\ \ ,trail:~<CR>
+"Common style
+nmap <silent> gC :set listchars=tab:\|.,trail:~,<CR>:set ts=4<CR>
+"Linux style
+nmap <silent> gL :set listchars=tab:\|.,trail:~,<CR>:set ts=8<CR>
+
 "Not hightlighting last search after reload
 noh
