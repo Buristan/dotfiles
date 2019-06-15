@@ -96,6 +96,10 @@ vmap gs <Plug>(openbrowser-smart-search)
 "Cyrillic settings
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
+"Modeline
+set modeline
+set modelines=10
+
 "Commands for choose syntaxes style
 "Assembly
 nmap <silent> gA :set listchars=tab:\ \ ,trail:~<CR>
