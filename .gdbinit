@@ -8,78 +8,73 @@ set history expansion
 set history size 2048
 set disassembly-flavor intel
 
+source ~/.gdb/setup_arch.gdb
+
+set $CONTEXTSIZE_DATA = 2
+
 source ~/.gdb/breakpoints.gdb
 
 define argv
 	show args
-	end
+end
 document argv
 	Print program arguments
 end
 
 define stack
 	info stack
-	end
+end
 document stack
 	Print call stack
-end
-
-define frame
-	info frame
-	info args
-	info locals
-	end
-document frame
-	Print stack frame
 end
 
 source ~/.gdb/reg.gdb
 
 define func
 	info functions
-	end
+end
 document func
 	Print functions in target
 end
 
 define var
 	info variables
-	end
+end
 document var
 	Print variables (symbols) in target
 end
 
 define lib
 	info sharedlibrary
-	end
+end
 document lib
 	Print shared libraries linked to target
 end
 
 define sig
 	info signals
-	end
+end
 document sig
 	Print signal actions for target
 end
 
 define thread
 	info threads
-	end
+end
 document thread
 	Print threads in target
 end
 
 define u
 	info udot
-	end
+end
 document u
 	Print kernel 'user' struct for target
 end
 
 define dis
 	disassemble $arg0
-	end
+end
 document dis
 	Disassemble address
 	Usage: dis addr
@@ -87,3 +82,26 @@ end
 
 source ~/.gdb/com_dump.gdb
 source ~/.gdb/ctx.gdb
+
+define hook-stop
+	# Calls "context" at every breakpoint.
+	context
+end
+
+define hook-run
+	# Attempt to detect the target in case gdb was started with the executable
+	# as an argument.
+	setup-detect-target
+end
+
+
+define hook-file
+	# Attempt to detect the target again since a new binary has been loaded.
+	setup-detect-target
+end
+
+
+define hook-core-file
+	# Attempt to detect the target again since a new core has been loaded.
+	setup-detect-target
+end

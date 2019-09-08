@@ -1,20 +1,20 @@
-# TODO fix dump of data segment
+# vim: set ft=gdb:
 define context
-	printf "_______________________________________"
-	printf "________________________________________\n"
+	printf "____________________________________________"
+	printf "____________________________________________\n"
 	reg
-	printf "[%04X:%08X]------------------------", $ss, $esp
-	printf "---------------------------------[stack]\n"
+	printf "[%04X:%016lX]------------------------", $ss, $rsp
+	printf "----------------------------------[stack]\n"
 	hexdump $sp+0x30
 	hexdump $sp+0x20
 	hexdump $sp+0x10
 	hexdump $sp
 	datawin
-	printf "[%04X:%08X]------------------------", $cs, $eip
-	printf "---------------------------------[ code]\n"
+	printf "[%04X:%016lX]------------------------", $cs, $rip
+	printf "-----------------------------------[code]\n"
 	x /6i $pc
-	printf "---------------------------------------"
-	printf "---------------------------------------\n"
+	printf "____________________________________________"
+	printf "____________________________________________\n"
 end
 document context
 	Print regs, stack, ds:esi, and disassemble cs:eip
@@ -32,9 +32,4 @@ set $SHOW_CONTEXT = 1
 end
 document context-on
 	Disable display of context on every program stop
-end
-
-# Calls "context" at every breakpoint.
-define hook-stop
-	context
 end

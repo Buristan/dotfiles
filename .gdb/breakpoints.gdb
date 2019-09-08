@@ -1,3 +1,4 @@
+# vim: set ft=gdb:
 define bpl
 	info breakpoints
 	end

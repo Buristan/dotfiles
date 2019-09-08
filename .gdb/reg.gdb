@@ -1,3 +1,4 @@
+# vim: set ft=gdb:
 define flags
 	if (($eflags >> 0xB) & 1 )
 		printf "O "
@@ -44,8 +45,8 @@ define flags
 	else
 		printf "c "
 	end
-		printf "\n"
-	end
+	printf "\n"
+end
 document flags
 	Print flags register
 end
@@ -63,27 +64,29 @@ define eflags
 	printf "  VM <%d>  RF <%d>  NT <%d>  IOPL <%d>\n",          \
 	        (($eflags >> 0x11) & 1 ), (($eflags >> 0x10) & 1 ), \
 	        (($eflags >> 0xE)  & 1 ), (($eflags >> 0xC)  & 3 )
-	end
+end
 document eflags
 	Print entire eflags register
 end
 
 # TODO right display for x32 systems
 define reg
-	printf "     rax:%016X rbx:%016X  rcx:%016X ",  $rax, $rbx, $rcx
+	printf "  rax:%016lX rbx:%016lX   rcx:%016lX",  $rax, $rbx, $rcx
+	printf "  rdx:%016lX\n",  $rdx
+	printf "  rsi:%016lX rdi:%016lX   rsp:%016lX",  $rsi, $rdi, $rsp
+	printf "  rbp:%016lX\n", $rbp
 	# not rflags because they don't use
-	printf " rdx:%016X     eflags:%08X\n",  $rdx, $eflags
-	printf "     rsi:%016X rdi:%016X  rsp:%016X ",  $rsi, $rdi, $rsp
-	printf " rbp:%016X     rip:%016X\n\n", $rbp, $rip
+	printf "  rip:%016lX eflags:%08X\n", $rip, $eflags
 	
-	printf "     eax:%08X ebx:%08X  ecx:%08X ",  $eax, $ebx, $ecx
-	printf " edx:%08X\n",  $edx
-	printf "     esi:%08X edi:%08X  esp:%08X ",  $esi, $edi, $esp
-	printf " ebp:%08X\n", $ebp
-	printf "     cs:%04X  ds:%04X  es:%04X", $cs, $ds, $es
+	# printf "     eax:%08X ebx:%08X  ecx:%08X ",  $eax, $ebx, $ecx
+	# printf " edx:%08X\n",  $edx
+	# printf "     esi:%08X edi:%08X  esp:%08X ",  $esi, $edi, $esp
+	# printf " ebp:%08X\n", $ebp
+	
+	printf "  cs:%04X  ds:%04X  es:%04X", $cs, $ds, $es
 	printf "  fs:%04X  gs:%04X  ss:%04X    ", $fs, $gs, $ss
 	flags
-	end
+end
 document reg
 	Print CPU registers
 end
