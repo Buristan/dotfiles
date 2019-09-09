@@ -73,18 +73,76 @@ end
 define reg
 	printf "  rax:%016lX rbx:%016lX   rcx:%016lX",  $rax, $rbx, $rcx
 	printf "  rdx:%016lX\n",  $rdx
-	printf "  rsi:%016lX rdi:%016lX   rsp:%016lX",  $rsi, $rdi, $rsp
-	printf "  rbp:%016lX\n", $rbp
+	
+	printf "  rsi:%016lX rdi:%016lX   ", $rsi, $rdi
+	
+	# Output rsp format
+	set_Green
+	printf "rsp"
+	set_normal
+	printf ":"
+	set_Green
+	printf "%016lX", $rsp
+	set_normal
+	
+	# Output rbp format
+	set_Brown
+	printf "  rbp"
+	set_normal
+	printf ":"
+	set_Brown
+	printf "%016lX", $rbp
+	set_normal
+	printf "\n"
+	
+	# Output rip format
+	set_Red
+	printf "  rip"
+	set_normal
+	printf ":"
+	set_Red
+	printf "%016lX", $rip
+	set_normal
+	
 	# not rflags because they don't use
-	printf "  rip:%016lX eflags:%08X\n", $rip, $eflags
+	printf " eflags:%08X\n", $eflags
 	
 	# printf "     eax:%08X ebx:%08X  ecx:%08X ",  $eax, $ebx, $ecx
 	# printf " edx:%08X\n",  $edx
 	# printf "     esi:%08X edi:%08X  esp:%08X ",  $esi, $edi, $esp
 	# printf " ebp:%08X\n", $ebp
 	
-	printf "  cs:%04X  ds:%04X  es:%04X", $cs, $ds, $es
-	printf "  fs:%04X  gs:%04X  ss:%04X    ", $fs, $gs, $ss
+	# Output code section
+	set_Red
+	printf "  cs"
+	set_normal
+	printf ":"
+	set_Red
+	printf "%04X", $cs
+	set_normal
+	
+	# Output data section
+	set_Cyan
+	printf "  ds"
+	set_normal
+	printf ":"
+	set_Cyan
+	printf "%04X", $ds
+	set_normal
+	
+	printf "  es:%04X", $es
+	
+	printf "  fs:%04X", $fs
+	printf "  gs:%04X  ", $gs
+	
+	set_Green
+	printf "ss"
+	set_normal
+	printf ":"
+	set_Green
+	printf "%04X    ", $ss
+	set_normal
+	
 	flags
 end
 document reg

@@ -23,7 +23,9 @@ document hex_quad
 end
 
 define hexdump
+	set_Blue
 	printf " %016lX : ", $arg0
+	set_norm
 	hex_quad $arg0
 	printf " - "
 	hex_quad ($arg0+8)
@@ -53,12 +55,25 @@ document hexdump
 end
 
 define ddump
-	printf "[%04X:%016lX]------------------------", $ds, $data_addr
+	# Output data
+	printf "["
+	set_Cyan
+	printf "%04X", $ds
+	set_norm
+	printf ":"
+	set_Cyan
+	printf "%016lX", $data_addr
+	set_norm
+	printf "]"
+	set_Cyan
+	printf "------------------------"
 	printf "-----------------------------------[data]\n"
+	set_norm
+	
 	set $_count=0
 	while ($_count < $arg0)
 		set $_i=($_count * 0x10)
-		hexdump $data_addr + $_i
+		hexdump ($data_addr+$_i)
 		set $_count++
 	end
 end

@@ -12,6 +12,7 @@ source ~/.gdb/setup_arch.gdb
 
 set $CONTEXTSIZE_DATA = 2
 
+source ~/.gdb/set_colors.gdb
 source ~/.gdb/breakpoints.gdb
 
 define argv
@@ -82,6 +83,7 @@ end
 
 source ~/.gdb/com_dump.gdb
 source ~/.gdb/ctx.gdb
+context-on
 
 define hook-stop
 	# Calls "context" at every breakpoint.
