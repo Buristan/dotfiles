@@ -1,1 +1,0 @@
-xrandr --output DP2 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920
