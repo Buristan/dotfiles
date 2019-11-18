@@ -22,7 +22,7 @@ bar {
 
 # Custom KeyBinds
 # Screenlock
-bindsym $mod+z exec i3lock -i ~/.i3/wallpapers/space.png
+bindsym $mod+z exec i3lock -i ~/.i3/wallpapers/space_double.png
 # PrtSc
 bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/screenshots/'
 
