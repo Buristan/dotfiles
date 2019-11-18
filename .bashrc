@@ -135,8 +135,8 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias fresh=". ~/.bashrc"
 
 #xrandr
-alias set_monitor_vertical="xrandr -q | perl -lnE 'our %mon; my (\$k,\$v) = \$_ =~ /^(\S+)\s+connected\s+(?:primary\s+)?(\d+x\d+)/; \$v?\$mon{\$k}=\$v:delete\$mon{\$k};}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; my @main = grep {/eDP/} keys %mon; my \$main = shift @main; say qq{xrandr --output \$output --auto --above \$main --rotate left --output \$main --auto}' | bash"
-alias set_monitor_demo="xrandr -q | perl -lnE 'our %mon; my (\$k,\$v) = \$_ =~ /^(\S+)\s+connected\s+(?:primary\s+)?(\d+x\d+)/; \$v?\$mon{\$k}=\$v:delete\$mon{\$k};}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; my @main = grep {/eDP/} keys %mon; my \$main = shift @main; say qq{xrandr --output \$output --auto --rotate normal --same-as \$main --output \$main --auto}' | bash"
+alias set_monitor_vertical="xrandr -q | perl -lnE 'our %mon; /^(\S+)\s+connected\s+(?:primary\s+)?/; \$mon{\$1}=1 if \$1;}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; my @main = grep {/eDP/} keys %mon; my \$main = shift @main; say qq{xrandr --output \$output --auto --above \$main --rotate left --output \$main --auto}' | bash"
+alias set_monitor_demo="xrandr -q | perl -lnE 'our %mon; /^(\S+)\s+connected\s+(?:primary\s+)?/; \$mon{\$1}=1 if \$1;}{my @output = grep {!/eDP/} keys %mon; my \$output = shift @output; my @main = grep {/eDP/} keys %mon; my \$main = shift @main; say qq{xrandr --output \$output --auto --rotate normal --same-as \$main --output \$main --auto}' | bash"
 # autodetecting of the second monitor
 # alias set_monitor_demo='xrandr --output DP2 --auto --pos 0x0 --rotate left --output eDP1 --auto --pos 0x1920'
 #do like vim
