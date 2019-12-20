@@ -165,6 +165,9 @@ mode "resize" {
 bindsym $mod+n workspace next
 bindsym $mod+Shift+n workspace prev
 
+bindsym $mod+i exec "i3-input"
+bindsym $mod+m move workspace to output up
+
 exec_always "setxkbmap -layout us,ru -option 'grp:alt_shift_toggle'"
 
 # Default workspace layout for multiscreen

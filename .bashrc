@@ -180,16 +180,6 @@ PERL5LIB="/home/burii/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB
 PERL_LOCAL_LIB_ROOT="/home/burii/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/burii/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/burii/perl5"; export PERL_MM_OPT;
-if [ -f /home/skaplun/perl5/perlbrew/etc/bashrc ]; then
-	source /home/skaplun/perl5/perlbrew/etc/bashrc
-fi
-PATH=$PATH:~/.PATH
-PATH="/home/skaplun/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PATH="/usr/local/openresty/bin:$PATH"
-PERL5LIB="/home/skaplun/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/skaplun/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/skaplun/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/skaplun/perl5"; export PERL_MM_OPT;
 
 #to rename tab in terminal
 
@@ -225,3 +215,6 @@ export EDITOR
 
 # Wakatime
 source ${HOME}/bash-wakatime/bash-wakatime.sh
+
+# GPG
+export GPG_TTY=$(tty)
