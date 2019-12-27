@@ -21,6 +21,8 @@ mailboxes   = "+-----Mail Ru Account-----" \
               +INBOX
 
 mailboxes   = +Sent
+mailboxes   = +[Perl5]
+mailboxes   = +[GitHub]
 mailboxes   = +[Wakatime]
 mailboxes   = +[Duolingo]
 mailboxes   = +[Codewars]
