@@ -1,0 +1,31 @@
+# vim: syntax=muttrc
+
+# MAIL
+set my_name   = "Sergey Kaplun"
+set folder    = "imaps://skaplun@tarantool.org@imap.mail.ru:993"
+set imap_user = "skaplun@tarantool.org"
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+source "`echo $HOME`/.muttcode/tnt"
+set imap_pass = $my_tnt_pass
+
+# SMTPS
+set realname = $my_name
+set from     = $imap_user
+set use_from = yes
+set smtp_url = smtps://$imap_user:$imap_pass@smtp.mail.ru:465
+set ssl_force_tls = yes
+unset record # Gmails SMTP already copies emails to Sent folder
+
+set header_cache = ~/.mutt/ru.mail.tnt/cache/headers
+set message_cachedir = ~/.mutt/ru.mail.tnt/cache/bodies
+set certificate_file = ~/.mutt/ru.mail.tnt/certificates
+
+mailboxes   = "+------TNT Account--------" \
+              +INBOX
+
+mailboxes   = +Sent
+
+unmailboxes = + # not show the first folder
+
+account-hook $folder "set imap_user=skaplun@tarantool.org imap_pass=$my_tnt_pass"

@@ -10,7 +10,7 @@
 
 # Basic Options {{{
 	# set wait_key = no        # shut up, mutt
-	# set mbox_type = Maildir  # mailbox type
+	set mbox_type = Maildir  # mailbox type
 	# set timeout = 0          # idle time before scanning
 	# set mail_check = 0       # minimum time between scans
 	# unset move               # gmail does that
@@ -133,6 +133,8 @@
 	bind index R        group-reply
 	bind index <tab>    sync-mailbox
 	
+	bind index gf       imap-fetch-mail
+	
 	# Ctrl-R to mark all as read
 	macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 	
@@ -217,14 +219,24 @@
 # }}}
 
 # Account Settings {{{
-	# Mail.Ru account
+	# Gmail account
 	source "`echo $HOME`/.mutt/google.muttrc"
 	# Here we use the $folder variable that has just been set in the sourced file.
 	# # We must set it right now otherwise the 'folder' variable will change in the next sourced file.
 	folder-hook $folder 'source ~/.mutt/google.muttrc'
 	# TODO not to ruin indent when go away from mailbox
 	
-	# Gmail account
+	# Mail.Ru account
 	source "`echo $HOME`"/.mutt/mail.muttrc"
-	folder-hook .*sergey_v_kaplun\@mail.ru/ 'source ~/.mutt/mail.muttrc'
+	folder-hook $folder 'echo "mail" source ~/.mutt/mail.muttrc'
+	
+	# TNT account
+	source "`echo $HOME`"/.mutt/tnt.muttrc"
+	folder-hook $folder 'echo "tnt" source ~/.mutt/tnt.muttrc'
+	
+	# Default account
+	source "`echo $HOME`"/.mutt/tnt.muttrc
+	
+	macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/mail.muttrc<enter><change-folder>!<enter>'
+	macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/tnt.muttrc<enter><change-folder>!<enter>'
 # }}}
