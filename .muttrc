@@ -122,7 +122,7 @@
 	bind index N        search-opposite
 	
 	# '?' is used for search-reverse
-	bind index \Ch      help
+	bind index h      help
 	
 	# 'N' is used for search-opposite
 	bind index \Cu      toggle-new
@@ -170,8 +170,8 @@
 	bind pager n     search-next
 	bind pager N     search-opposite
 	
-	# '?' is used for search-opposite
-	bind index \Ch   help
+	# '?' is used for search-reverse
+	bind pager h   help
 	
 	bind pager gg    top
 	bind pager G     bottom
@@ -236,6 +236,7 @@
 	
 	# Default account
 	source "`echo $HOME`"/.mutt/tnt.muttrc
+	# account-hook *skaplun\@tarantool.org/ 'source ~/.mutt/tnt.muttrc'
 	
 	macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/mail.muttrc<enter><change-folder>!<enter>'
 	macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/tnt.muttrc<enter><change-folder>!<enter>'
