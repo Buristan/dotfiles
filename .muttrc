@@ -122,7 +122,7 @@
 	bind index N        search-opposite
 	
 	# '?' is used for search-reverse
-	bind index h      help
+	bind index |      help
 	
 	# 'N' is used for search-opposite
 	bind index \Cu      toggle-new
@@ -171,7 +171,7 @@
 	bind pager N     search-opposite
 	
 	# '?' is used for search-reverse
-	bind pager h   help
+	bind pager |   help
 	
 	bind pager gg    top
 	bind pager G     bottom
