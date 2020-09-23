@@ -5,10 +5,15 @@ call plug#begin()
 	Plug 'wakatime/vim-wakatime'
 	"Browser
 	Plug 'tyru/open-browser.vim'
+	"Tlist -- vertical split of tags
+	Plug 'yegappan/taglist'
+	"Commnets
+	Plug 'tpope/vim-commentary'
 	"colorschemes
 	Plug 'Haron-Prime/evening_vim'
 	Plug 'fsrc/lyla-vim'
 	Plug 'tbastos/vim-lua'
+	Plug 'morhetz/gruvbox'
 	Plug 'joshdick/onedark.vim'
 	Plug 'gosukiwi/vim-atom-dark'
 	Plug 'okoshovetc/yvcs'
@@ -107,6 +112,12 @@ nmap <silent> gA :set listchars=tab:\ \ ,trail:~<CR>
 nmap <silent> gC :set listchars=tab:\\|.,trail:~<CR>:set ts=4<CR>:set sw=4<CR>
 "Linux style
 nmap <silent> gL :set listchars=tab:\\|.,trail:~<CR>:set ts=8<CR>:set sw=8<CR>
+
+" Color column for comments and code
+if version > 703
+	set colorcolumn=81,67
+	highlight ColorColumn ctermbg=235
+endif
 
 "Not hightlighting last search after reload
 noh
