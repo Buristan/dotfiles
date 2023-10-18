@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 unpack_bash:
-	cp .bashrc .bash_profile .xinitrc .vimrc .screenrc .git-completion.bash .inputrc .ctags .gdbinit .muttrc ..
+	cp .bashrc .bash_profile .xinitrc .vimrc .screenrc .gitconfig .git-completion.bash .inputrc .ctags .gdbinit .muttrc ..
 	cp -r .vim .mutt .gdb .config .i3 ..
 	git submodule update --init --recursive
 	chmod 775 ~/.gdb/detect-arch.sh
